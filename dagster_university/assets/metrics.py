@@ -11,7 +11,7 @@ from dagster._utils.backoff import backoff
 from ..partitions import weekly_partition
 
 
-@asset(deps=["taxi_trips", "taxi_zones"])
+@asset(deps=["taxi_trips_partitioned", "taxi_zones"])
 def manhattan_stats(database: DuckDBResource) -> None:
     query = """
         select
@@ -57,7 +57,7 @@ def manhattan_map() -> None:
     pio.write_image(fig, constants.MANHATTAN_MAP_FILE_PATH)
 
 
-@asset(deps=["taxi_trips"], partitions_def=weekly_partition)
+@asset(deps=["taxi_trips_partitioned"], partitions_def=weekly_partition)
 def trips_by_week(context: AssetExecutionContext, database: DuckDBResource) -> None:
     period_to_fetch = context.partition_key
 
