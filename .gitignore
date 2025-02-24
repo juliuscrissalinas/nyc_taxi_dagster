@@ -2,3 +2,6 @@ data*/
 tmp*/
 data/outputs/trips_by_week.csv
 .tmp*/
+data/outputs/trips_by_week.csv
+data/raw/taxi_trips_2023-03.parquet
+data/outputs/manhattan_map.png

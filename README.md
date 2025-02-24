@@ -1,4 +1,4 @@
-# dagster_university
+# dagster_incremental
 
 This is a [Dagster](https://dagster.io/) project made to accompany Dagster University coursework.
 
